@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  /**
+  * Функция складывает два числа.
+    * @param {number} firstNumber первое число.
+    * @param {number} secondNumber второе число.
+    * @returns {string} Результат сложения двух чисел.
+    */
+  function calcSumNumber(firstNumber, secondNumber) {
+    console.log(`Складываем ${firstNumber} и ${secondNumber} получаем: ${firstNumber + secondNumber}.`);
+  }
+
+  /**
+  * Функция вычитает из первого числа второе. Если второе число больше первого, 
+  * то вычитает из второго первое.
+    * @param {number} firstNumber первое число.
+    * @param {number} secondNumber второе число.
+    * @returns {string} Результат вычитания чисел.
+    */
+  function calcSubtractNumber(firstNumber, secondNumber) {
+    if (firstNumber > secondNumber) {
+      console.log(`Вычитаем из большего ${firstNumber} меньшее ${secondNumber} и получаем: ${firstNumber - secondNumber}.`);
+    } else if (firstNumber < secondNumber) {
+      console.log(`Вычитаем из большего ${secondNumber} меньшее ${firstNumber} и получаем: ${secondNumber - firstNumber}.`);
+    } else {
+      console.log(`Числа ${firstNumber} и ${secondNumber} равны, вот тебе 0.`);
+    }
+  }
+  /**
+  * Функция умножает два числа.
+    * @param {number} firstNumber первое число.
+    * @param {number} secondNumber второе число.
+    * @returns {string} Результат умножения двух чисел.
+    */
+  function calcMultiplyNumber(firstNumber, secondNumber) {
+    console.log(`Умножим ${firstNumber} на ${secondNumber} получим: ${firstNumber * secondNumber}.`);
+  }
+
+  /**
+  * Функция делит первое число на второе.
+    * @param {number} firstNumber первое число.
+    * @param {number} secondNumber второе число.
+    * @returns {string} Результат деления.
+    */
+  function calcDivideNumber(firstNumber, secondNumber) {
+    console.log(`Разделим ${firstNumber} на ${secondNumber} получим: ${firstNumber / secondNumber}.`);
+  }
+
+  const firstNumber = +prompt('first number');
+  const secondNumber = +prompt('second number');
+
+  console.log(`Ввели первое число: ${firstNumber}.`)
+  console.log(`Ввели второе число: ${secondNumber}.`)
+  calcSumNumber(firstNumber,secondNumber);
+  calcSubtractNumber(firstNumber,secondNumber);
+  calcMultiplyNumber(firstNumber,secondNumber);
+  calcDivideNumber(firstNumber,secondNumber);
+</script>
+</body>
+</html>
