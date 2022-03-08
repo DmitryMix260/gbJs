@@ -44,6 +44,11 @@
     },
   ];
 
+  const filterProduct = products.filter( product => "photos" in product && product.photos.length !== 0);
+  console.log(filterProduct);
+
+  console.log(products.sort((product1, product2) => product1.price - product2.price));
+
   // Здесь пишем решение, данный комментарий необходимо стереть.
 </script>
 </body>
