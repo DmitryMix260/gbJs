@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+<script>
+  "use strict";
+
+  /**
+  * Функция проверяет число которое пришло на ввод. И выводит число 
+  * с текстовым значением, которое соответсвует условию.
+    * @param {number} countDeclination целое, положительное число.
+    * @param {string} oneDeclination слово, которое будет выводиться 
+    * согласно условию.
+    * @param {string} twoDeclination слово, которое будет выводиться 
+    * согласно условию.
+    * @param {string} fiveDeclination слово, которое будет выводиться 
+    * согласно условию.
+    * @returns {string} Вернет countDeclination и слово согласно условию.
+    */
+  function declinationOfNumber(countDeclination, oneDeclination, twoDeclination, 
+  fiveDeclination) {
+    if (countDeclination === 1){
+      console.log(`У меня есть ${countDeclination} ${oneDeclination}.`);
+    } else if(countDeclination >= 2 && countDeclination <=4) {
+      console.log(`У меня есть ${countDeclination} ${twoDeclination}.`);
+    } else if (countDeclination >= 5) {
+      console.log(`У меня есть ${countDeclination} ${fiveDeclination}.`);
+    } else {
+      console.log(`Непредвиденная ошибка.`);
+    }
+  }
+
+  const countDeclination = +prompt('Введите целое, положительное число.');
+  const oneDeclination = prompt('Введите слово в именительном падеже.');
+  const twoDeclination = prompt('Введите это слово в родительном падеже');
+  const fiveDeclination = prompt('Введите это слово во множиственном числе');
+  const word = declinationOfNumber(countDeclination, oneDeclination, 
+  twoDeclination, fiveDeclination);
+  
+</script>
+</body>
+</html>

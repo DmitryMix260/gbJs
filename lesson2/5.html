@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  /**
+  * Функция проверяет оператор.
+    * @param {string} operation оператор, который проверяют.
+    * @returns {string} Если ввели правильный оператор, то вызовет 
+    * функцию calcOperation, если не правильный, то выведет сообщение об ошибке.
+    */
+  function testOperator(operation){
+    if(operation != '+' && operation != '-' && operation != '*' 
+    && operation != '/') {
+      console.log('Был передан некорректный аргумент в параметр operation!');
+    } else {
+      calcOperation(arg1, arg2, operation);
+    }
+  }
+
+  /**
+  * Функция производит математическое действие с двумя числами, 
+  * согласно мат. оператору, который введет пользователь.
+  * с текстовым значением, которое соответсвует условию.
+    * @param {number} arg1 любое конкретное число число.
+    * @param {number} arg2 любое конкретное число число.
+    * @param {string} operation математическое действие, которое требуется 
+    * сделать с числами.
+    * @returns {strig} Выведет два числа и результат действия,
+    * который указали в operation.
+    */
+  function calcOperation(arg1, arg2, operation) {
+    switch (operation){
+      case '+':
+        console.log(`Складываем ${arg1} и ${arg2} получаем: ${arg1 + arg2}.`);
+        break;
+      case '-':
+        if (arg1 > arg2) {
+        console.log(`Вычитаем из большего ${arg1} меньшее ${arg2} и получаем: ${arg1 - arg2}.`);
+        } else if (arg1 < arg2) {
+        console.log(`Вычитаем из большего ${arg2} меньшее ${arg1} и получаем: ${arg2 - arg1}.`);
+        } else {
+         console.log(`Числа ${arg1} и ${arg2} равны, вот тебе 0.`);
+        }
+        break;
+      case '*':
+        console.log(`Умножим ${arg1} на ${arg2} получим: ${arg1 * arg2}.`);
+        break;
+      case '/':
+        console.log(`Разделим ${arg1} на ${arg2} получим: ${arg1 / arg2}.`);
+        break;  
+    }
+  }
+
+  let arg1 = +prompt('Введите arg1');
+  let arg2 = +prompt('Введите arg2');
+  let operation = prompt('Введите математический оператор: +, -, *, /.');
+  testOperator(operation);
+
+</script>
+</body>
+</html>
